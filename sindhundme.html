@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday, My Love!</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #ffebf0;
+            overflow-x: hidden;
+        }
+        h1 {
+            color: #d63384;
+            animation: fadeIn 2s ease-in-out;
+        }
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 10px;
+            padding: 20px;
+            max-width: 800px;
+            margin: auto;
+        }
+        .gallery img {
+            width: 100%;
+            height: auto;
+            cursor: pointer;
+            border-radius: 10px;
+            transition: transform 0.3s;
+            animation: popIn 1s ease-in-out;
+        }
+        .gallery img:hover {
+            transform: scale(1.1);
+        }
+        .lightbox {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            display: none;
+            align-items: center;
+            justify-content: center;
+        }
+        .lightbox img {
+            max-width: 90%;
+            max-height: 90%;
+            border-radius: 10px;
+        }
+        .lightbox.active {
+            display: flex;
+        }
+        .message {
+            font-size: 20px;
+            color: #d63384;
+            margin-top: 20px;
+            animation: fadeIn 3s ease-in-out;
+        }
+        .description-container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 15px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            animation: fadeIn 3s ease-in-out;
+        }
+        .description-container p {
+            font-size: 18px;
+            color: #333;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes popIn {
+            from { transform: scale(0.8); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <h1>Wish You A Many More Happy Returns Of the Day, Dear Sindhu! 🎂❤️</h1>
+    <p class="message">You are one of the best Thing happend in my Life 🥰 🎉</p>
+    
+    <div class="description-container">
+        <h2>Why You Are So Special ❤️</h2>
+        <p>You are the one who Always supports me ❤️one who stand with me when i'm Down,You are my ladder and climbed the struggles with the help of you,You are Always My chellakutty forever🥰.We are like Tom and Jerry who fights a lot but those are the actual way of True Love❤️.I have seen your eye that how much you love me,Love you too Dear paki❤️,I cannot express you in words ,but if my feeling has mouth to talk it would be at your feet di pakii..You showered me with your love ,i'have not done anything to you but being with you is a blessing for me.I will be  always be with you.You should always be happy with a smiling face.You are the supporting system to your family dii such a brave girl i ever met. I have learnt many things from you ,even you guided me as a teacher,mentor , and a lovely girlfriend.You taught me a lot about good and bad.And you made me completely as a Man ❤️</p>
+    </div>
+    
+    <div class="gallery" id="gallery"></div>
+    
+    <div class="lightbox" id="lightbox">
+        <img id="lightbox-img" src="">
+    </div>
+
+    <script>
+        const imagePaths = [
+            'images/ss1.jpg', 'images/ss2.png', 'images/ss3.jpg', 'images/ss4.jpg', 
+            'images/ss5.png', 'images/ss6.jpg', 'images/ss7.jpg', 'images/ss8.jpg', 
+            'images/ss9.jpg', 'images/ss10.jpg', 'images/ss11.jpg', 'images/ss12.jpg', 
+            'images/ss13.jpg', 'images/ss14.jpg', 'images/ss15.jpg', 'images/ss16.jpg', 
+            'images/ss17.jpg', 'images/ss18.jpg', 'images/ss19.jpg', 'images/ss20.jpg', 
+            'images/ss21.jpg', 'images/ss22.jpg', 'images/ss23.jpg', 'images/ss24.jpg', 
+            'images/ss25.jpg', 'images/ss26.jpg', 'images/ss27.jpg', 'images/ss28.jpg', 'images/ss29.jpg', 'images/ss30.jpg'
+        ];
+
+        const gallery = document.getElementById('gallery');
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+
+        // Populate Gallery
+        imagePaths.forEach(src => {
+            const img = document.createElement('img');
+            img.src = src;
+            img.alt = 'Our Beautiful Memory';
+            img.addEventListener('click', () => openLightbox(src));
+            gallery.appendChild(img);
+        });
+
+        function openLightbox(src) {
+            lightboxImg.src = src;
+            lightbox.classList.add('active');
+        }
+
+        lightbox.addEventListener('click', () => {
+            lightbox.classList.remove('active');
+        });
+    </script>
+</body>
+</html>
